@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Motivasi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header><h2>Aplikasi Motivasi</h2></header>
+
+<!-- Halaman Notification -->
+<section id="notification" class="page active">
+  <h3>Video Motivasi</h3>
+  <div class="video-card">
+    <input type="text" placeholder="Judul video">
+    <textarea placeholder="Deskripsi video"></textarea>
+  </div>
+  <div class="video-card">
+    <input type="text" placeholder="Judul video">
+    <textarea placeholder="Deskripsi video"></textarea>
+  </div>
+  <h3>Grafik pencapaian (berdasarkan mood)</h3>
+  <div class="chart" id="chart"></div>
+</section>
+
+<!-- Halaman Peduli Mentalmu -->
+<section id="mental" class="page">
+  <h3>Peduli Mentalmu</h3>
+  <p id="mental-desc">Ayo bagikan sedikit cerita dan juga saran mu!</p>
+  <input type="text" placeholder="Ubah deskripsi..." oninput="document.getElementById('mental-desc').innerText=this.value">
+  <div class="grid">
+    <div class="card"><textarea placeholder="Cerita 1"></textarea></div>
+    <div class="card"><textarea placeholder="Cerita 2"></textarea></div>
+    <div class="card"><textarea placeholder="Saran 1"></textarea></div>
+    <div class="card"><textarea placeholder="Saran 2"></textarea></div>
+  </div>
+</section>
+
+<!-- Halaman Suasana Hati -->
+<section id="mood" class="page">
+  <h3>Atur jadwal mu agar lebih produktif</h3>
+  <div class="calendar">
+    <table>
+      <thead>
+        <tr><th>MIN</th><th>SEN</th><th>SEL</th><th>RAB</th><th>KAM</th><th>JUM</th><th>SAB</th></tr>
+      </thead>
+      <tbody id="calendar-body"></tbody>
+    </table>
+  </div>
+  <div class="mood-options">
+    <button onclick="selectMood('Senang')">😊 Senang</button>
+    <button onclick="selectMood('Biasa')">😐 Biasa</button>
+    <button onclick="selectMood('Sedih')">😔 Sedih</button>
+  </div>
+  <div class="reason-box">
+    <label>Berikan alasanmu:</label>
+    <textarea id="reason" placeholder="Ketik di sini..."></textarea>
+    <button onclick="saveMood()">Simpan</button>
+  </div>
+</section>
+
+<!-- Halaman Akun -->
+<section id="account" class="page">
+  <h3>Akun</h3>
+  <div class="account-info">
+    <p id="username">Nama pengguna: Ahmad</p>
+    <p id="useremail">Email: contoh@email.com</p>
+  </div>
+  <div class="account-form">
+    <h4>Ganti Akun</h4>
+    <input type="text" id="newName" placeholder="Nama baru">
+    <input type="email" id="newEmail" placeholder="Email baru">
+    <button onclick="changeAccount()">Simpan Akun Baru</button>
+  </div>
+</section>
+
+<!-- Navigasi -->
+<nav>
+  <a onclick="showPage('notification')">Notifikasi</a>
+  <a onclick="showPage('mental')">Peduli mentalmu</a>
+  <a onclick="showPage('mood')">Suasana hati</a>
+  <a onclick="showPage('account')">Akun</a>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>
